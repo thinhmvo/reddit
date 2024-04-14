@@ -1,6 +1,7 @@
 package com.project.reddit.dtos;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+
 
 import com.project.reddit.models.User;
 
@@ -8,7 +9,7 @@ public class UserDTO {
 
     private Long id;
     private String userName;
-    private Date createdDate;
+    private LocalDateTime createdDate;
     private String role;
 
     public User convertToUser() {
