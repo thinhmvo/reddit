@@ -2,81 +2,39 @@ package com.project.reddit.models;
 
 
 import jakarta.persistence.*;
-
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import java.util.Date;
-import java.util.Objects;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 @Entity
 @Table(name = "users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(name = "username")
     private String userName;
 
-
+    @Column
     private String role;
 
 
     @Column(name = "created_at")
     private Date createdAt;
 
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", role='" + role + '\'' +
-                ", createdAt=" + createdAt +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(getId(), user.getId()) && Objects.equals(getUserName(), user.getUserName()) && Objects.equals(getRole(), user.getRole()) && Objects.equals(getCreatedAt(), user.getCreatedAt());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId(), getUserName(), getRole(), getCreatedAt());
-    }
-
+    @OneToMany(mappedBy = "userId", cascade = CascadeType.REMOVE)
+    @JsonIgnore
+    private List<Post> posts;
+    
+   
 
 }
