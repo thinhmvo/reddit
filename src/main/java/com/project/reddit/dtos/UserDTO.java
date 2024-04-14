@@ -5,6 +5,13 @@ import java.time.LocalDateTime;
 
 import com.project.reddit.models.User;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserDTO {
 
     private Long id;
