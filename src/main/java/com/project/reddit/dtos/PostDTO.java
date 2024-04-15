@@ -23,13 +23,15 @@ public class PostDTO {
 
     private LocalDateTime createdDate;
 
+    private long userId;
+
     public Post convertToPost() {
         Post newPost = new Post();
         newPost.setTitle(title);
         newPost.setBody(body);
         newPost.setStatus(status);
         newPost.setCreateDate(createdDate);
-
+        newPost.setUserId(userId);
         return newPost;
 
     }

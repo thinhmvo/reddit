@@ -33,7 +33,7 @@ public class User {
     @Column(name = "created_at", columnDefinition = "TIMESTAMP")
     private LocalDateTime createdAt;
 
-    @OneToMany(mappedBy = "userId", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Post> posts;
     

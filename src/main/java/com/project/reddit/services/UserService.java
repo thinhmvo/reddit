@@ -8,6 +8,7 @@ import com.project.reddit.models.User;
 import com.project.reddit.repositories.UserRepo;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -20,4 +21,12 @@ public class UserService {
 
     }
 
+    public Optional<User> findById(long id) {
+         Optional<User> returnedUser = userRepo.findById(id);
+
+         if(returnedUser.isPresent()) return returnedUser;
+
+         return null;
+
+        }
 }

@@ -42,6 +42,9 @@ public class Post {
     @Column(name = "created_at")
     private LocalDateTime createDate;
 
+    @Column(name = "user_id")
+    private long userId;
+
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", insertable=false, updatable=false)
