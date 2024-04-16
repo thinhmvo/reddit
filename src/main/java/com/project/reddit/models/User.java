@@ -23,8 +23,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "username")
-    private String userName;
+    @Column(name = "email")
+    private String email;
+
+    @Column
+    private String password;
 
     @Column
     private String role;

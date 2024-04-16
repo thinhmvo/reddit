@@ -1,9 +1,11 @@
 package com.project.reddit.services;
 
 
+import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.project.reddit.dtos.UserDTO;
 import com.project.reddit.models.User;
 import com.project.reddit.repositories.UserRepo;
 
@@ -30,6 +32,17 @@ public class UserService {
 
         }
 
+    
+    public User savUser(UserDTO userDTO) {
+        return userRepo.save(userDTO.convertToUser());
+    }
+
+    public void deleteUser(long id) {
+        userRepo.deleteById(id);
+    }
+
+    
+    
     
     
 }
