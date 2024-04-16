@@ -5,9 +5,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project.reddit.dtos.UserDTO;
 import com.project.reddit.models.User;
 import com.project.reddit.services.UserService;
 
@@ -35,6 +38,11 @@ public class UserController {
         return new ResponseEntity<Optional<User>>(returnedUser, HttpStatus.OK);
     }
 
+    @PostMapping("/user")
+    public ResponseEntity<User> createUser(@RequestBody  UserDTO newUserDTO) {
+        User retunredUser = userService.saveUser(newUserDTO);
+        return new ResponseEntity<User>(retunredUser, HttpStatus.CREATED);
+    }
 
 
 }

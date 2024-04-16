@@ -33,7 +33,7 @@ public class UserService {
         }
 
     
-    public User savUser(UserDTO userDTO) {
+    public User saveUser(UserDTO userDTO) {
         return userRepo.save(userDTO.convertToUser());
     }
 
