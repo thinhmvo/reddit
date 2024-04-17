@@ -16,6 +16,9 @@ import java.util.Optional;
 public class UserService {
 
     @Autowired
+    UserDetailService userDetailService;
+
+    @Autowired
     UserRepo userRepo;
 
     public List<User> findAllUsers() {
