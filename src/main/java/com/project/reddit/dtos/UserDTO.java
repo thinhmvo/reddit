@@ -15,14 +15,14 @@ import lombok.NoArgsConstructor;
 public class UserDTO {
 
     private Long id;
-    private String userEmail;
+    private String userName;
     private String password;
     private LocalDateTime createdDate;
     private String role;
 
     public User convertToUser() {
         User user = new User();
-        user.setEmail(userEmail);
+        user.setUsername(userName);
         user.setPassword(password);
         user.setCreatedAt(createdDate);
         user.setRole(role);
